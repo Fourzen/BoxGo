@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'SETTINGS' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="mainMenu" ></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-title>
+              {{ 'SETTINGS' | translate}}
+            </ion-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+
+              <ion-label>{{'DARK MODE' | translate}}:</ion-label>
+              <ion-toggle [ngModel]="dark" (ionChange)="toggleDarkMode()"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{'LANGUAGE' | translate}}</ion-label>
+              <ion-select (ionChange)="onChangeLng($event)" [value]="selected">
+                <ion-select-option  *ngFor="let lng of language" [value]="lng.value">{{lng.text | uppercase | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>{{'ORDER ORDERS' | translate}}</ion-label>
+              <ion-select (ionChange)="onSetOrdering($event)" [value]="ordering">
+                <ion-select-option value="closest">{{'CLOSEST' | translate}}</ion-select-option>
+                <ion-select-option value="route">{{'ROUTE' | translate}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-card-content>
+
+          <ion-card-content>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

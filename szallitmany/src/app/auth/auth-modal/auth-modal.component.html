@@ -1,0 +1,33 @@
+<ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-button (click)="onDismissModal()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>
+        {{"DID YOU FORGOT YOU PASSWORD" | translate}}?
+    </ion-title>
+</ion-toolbar>
+<ion-content>
+    <form [formGroup]="form">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6" offset="3">
+                    <ion-item>
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input type="text" formControlName="email"></ion-input>
+                    </ion-item>
+                    <span class="error-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+                        {{'ENTER VALID EMAIL' | translate}}
+                    </span>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col  size="2" offset="5">
+                    <ion-button (click)="onSendPasswordResetEmail()"> {{'SEND' | translate}}</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+
+</ion-content>

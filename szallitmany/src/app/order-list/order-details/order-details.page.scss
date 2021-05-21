@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ion-content {
+  ion-spinner {
+    position: center;
+  }
+
+  ion-item {
+    max-height: 300px;
+
+    ion-label {
+      color: black;
+    }
+
+    h4 {
+
+      color: black
+    }
+  }
+}
+
+
+body.dark {
+  color: #7d7d7d;
+}

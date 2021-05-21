@@ -1,0 +1,38 @@
+<ion-app>
+    <ion-menu side="start" menuId="mainMenu" contentId="mainMenuContent">
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>
+                    Menu
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list class="ion-no-margin ion-no-padding">
+                <ion-menu-toggle class="ion-padding-horizontal">
+                    <ion-item routerLink="/profile">
+                        <ion-icon class="ion-padding-horizontal" name="person-outline"></ion-icon>
+                        <ion-label>{{'PROFILE' | translate}}</ion-label>
+                    </ion-item>
+                    <ion-item routerLink="/qr-scanner">
+                        <ion-icon class="ion-padding-horizontal" name="scan-circle-outline"></ion-icon>
+                        <ion-label>{{'QR SCANNER' | translate}}</ion-label>
+                    </ion-item>
+                    <ion-item routerLink="/order-list">
+                        <ion-icon class="ion-padding-horizontal" name="car-outline"></ion-icon>
+                        <ion-label>{{ 'ORDERS' | translate}}</ion-label>
+                    </ion-item>
+                    <ion-item routerLink="/settings">
+                        <ion-icon class="ion-padding-horizontal" name="construct-outline"></ion-icon>
+                        <ion-label >{{'SETTINGS' | translate}}</ion-label>
+                    </ion-item>
+                    <ion-item routerLink="/auth" (click)="onLogout()">
+                        <ion-icon class="ion-padding" name="log-out-outline"></ion-icon>
+                        <ion-label>{{ 'LOGOUT' | translate}}</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="mainMenuContent"></ion-router-outlet>
+</ion-app>

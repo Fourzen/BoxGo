@@ -1,0 +1,8 @@
+{
+  "name": "BoxGo",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

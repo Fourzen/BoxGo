@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="mainMenu" ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'ORDERS' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-spinner *ngIf="displayedOrders === null || displayedOrders === undefined" name="crescent"></ion-spinner>
+
+<ion-content *ngIf="!(displayedOrders === null || displayedOrders === undefined)">
+  <ion-segment [value]="filter" (ionChange)="onFilterUpdate($event)">
+    <ion-segment-button value="onDeliver">{{'ONDELIVER'| translate}}</ion-segment-button>
+    <ion-segment-button value="completed">{{'COMPLETED'| translate}}</ion-segment-button>
+    <ion-segment-button value="rejected">{{'REJECTED'| translate}}</ion-segment-button>
+  </ion-segment>
+  <ion-grid class="ion-no-margin ion-no-padding" *ngIf="displayedOrders.length > 0">
+    <ion-row *ngFor="let order of displayedOrders" >
+      <ion-col size="10" offset="1" >
+        <ion-card [routerLink]="['/','order-list','order-details', order.id]">
+          <ion-card-header>
+            <ion-label>
+              <h2>{{ order.address.city }}</h2>
+            </ion-label>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="displayedOrders.length === 0">
+    <ion-row>
+      <ion-col>
+        <ion-text>{{'THERE IS NO ' + filter.toUpperCase() + ' ORDER' | translate }}</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

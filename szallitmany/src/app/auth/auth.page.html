@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="end">
+            <ion-button (click)="onOpenAlert()">
+                <ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+        </ion-buttons>
+        <ion-title>{{'LOGIN' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding ion-no-margin">
+    <form [formGroup]="form" class="ion-margin-vertical ion-padding-vertical">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="8" offset="2" size-md="6" offset-md="3" size-lg="2" offset-lg="5">
+                    <ion-item>
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input type="text" formControlName="email"></ion-input>
+
+                    </ion-item>
+                    <span class="error-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+                        {{'ENTER VALID EMAIL' | translate}}
+                    </span>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" offset="2" size-md="6" offset-md="3" size-lg="2" offset-lg="5">
+                    <ion-item>
+                        <ion-label position="floating">
+                            Password
+                        </ion-label>
+                        <ion-input type="password" formControlName="password"></ion-input>
+                    </ion-item>
+                    <span class="error-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+                        {{'ENTER VALID PASSWORD' | translate}}
+                    </span>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="6" offset="3" size-lg="2" offset-lg="5">
+                    <ion-button data-cy="loginButton" color="primary" expand="block" *ngIf="!isLoading" (click)="onSubmit()">
+                        {{'LOGIN' | translate}}
+                    </ion-button>
+                    <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+                    <span class="error-text invalid-form-text" *ngIf="isError">{{'INVALID EMAIL OR PASSWORD' | translate}}</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

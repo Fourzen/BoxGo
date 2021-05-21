@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="mainMenu" ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'SEARCH ORDER' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="block" (click)="startScan()"><ion-icon name="qr-code-outline"></ion-icon>
+    {{'START SCAN' | translate}}</ion-button>
+
+  <video #video [hidden]="!scanActive" width="100%"></video>
+  <canvas #canvas hidden></canvas>
+  <ion-button expand="block" [hidden]="!scanActive" color="danger" (click)="stopScan()"><ion-icon name="stop-circle-outline"></ion-icon>
+    {{'STOP SCAN' | translate}}</ion-button>
+
+</ion-content>

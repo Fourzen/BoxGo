@@ -1,0 +1,6 @@
+<div>
+    <ion-img [src]="savedSign" *ngIf="savedSign"></ion-img>
+    <ion-button *ngIf="!savedSign" color="primary" slot="icon-only" (click)="onSign()">
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-button>
+</div>

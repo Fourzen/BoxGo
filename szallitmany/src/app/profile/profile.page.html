@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button menu="mainMenu" ></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{'PROFILE' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-spinner *ngIf="courier === null"></ion-spinner>
+    <ion-card *ngIf="courier !== null">
+        <ion-card-header>
+            <h2 class="name">{{courier.name}}</h2>
+            <ion-img class="profile-icon" src="../../assets/images/blank-person.png"></ion-img>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size-sm="4" offset-sm="2">
+                        Age: {{courier.age}}
+                    </ion-col>
+                    <ion-col size-sm="4" offset-sm="2">
+                        Email: {{courier.email}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-sm="4" offset-sm="2">
+                        Orders: {{courier.orders}}
+                    </ion-col>
+                    <ion-col size-sm="4" offset-sm="2">
+                        {{'Completed orders' | translate}} : {{courier.compOrders}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-sm="4" offset-sm="2">
+
+                    </ion-col>
+                    <ion-col size-sm="4" offset-sm="2">
+
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

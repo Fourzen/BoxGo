@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>{{'SIGN' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding ion-no-bounce" [forceOverscroll]="false">
+
+  <canvas #imageCanvas
+          (touchstart)="onStartSign($event)" (mousedown)="onStartSign($event)"
+          (touchmove)="onMovedSign($event)" (mousemove)="onMovedSign($event)"
+          (touchend)="onFinishSign()" (mouseup)="onFinishSign()"
+  ></canvas>
+
+  <ion-button expand="block" color="primary" (click)="saveImage()">{{'COMPLETE' | translate}}</ion-button>
+  <ion-img [src]="blob"></ion-img>
+</ion-content>
